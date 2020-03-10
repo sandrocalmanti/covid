@@ -1,10 +1,5 @@
-rm(list = ls())
-
 # Data: https://github.com/DavideMagno/ItalianCovidData.git
-
-library(ggplot2)
-library(dplyr)
-library(lubridate)
+library(tidyverse)
 
 lfit <- function(x,t,n=0) {
   #Length of forecasting set
