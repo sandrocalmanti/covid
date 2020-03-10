@@ -1,5 +1,6 @@
 # Data: https://github.com/DavideMagno/ItalianCovidData.git
 library(tidyverse)
+library(lubridate)
 
 lfit <- function(x,t,n=0) {
   #Length of forecasting set
