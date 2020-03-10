@@ -21,8 +21,7 @@ lfit <- function(x,t,n=0) {
 # Length of the forecast set
 ############################
 
-nf <- 2
-
+nf <- 0
 
 df <- read.csv("./DATA/Daily_Covis19_Italian_Data_Cumulative.csv", sep=",") %>%
   group_by(Date)  %>%
@@ -33,16 +32,19 @@ df <- read.csv("./DATA/Daily_Covis19_Italian_Data_Cumulative.csv", sep=",") %>%
 #Normalize Tests and Cases using max, add time [days]
 df <- df  %>% mutate(nTests=Tests/max(Tests), 
                      nCases=Cases/max(Cases), 
+                     nDead=Dead/max(Dead), 
                      Time=as.integer(ymd(Date)-ymd(Date[1])) )
 
 df <- df %>% mutate(
   fCases = lfit(nCases,Time,n=nf),
-  fTests = lfit(nTests,Time,n=nf)
+  fTests = lfit(nTests,Time,n=nf),
+  fDead  = lfit(nDead,Time,n=nf)
 )
 
 p<- ggplot(data=df,aes(Date,100*(nCases-fCases),color='Casi accertati'), color='black') +
   geom_point() +
   geom_point(data=df,aes(Date,100*(nTests-fTests), color='Tamponi')) +
+  geom_point(data=df,aes(Date,100*(nDead-fDead), color='Decessi')) +
   ylab('Differenza Osservati - Previsti [%]') +
   xlab('Data') +
   labs(color="") +
@@ -50,7 +52,7 @@ p<- ggplot(data=df,aes(Date,100*(nCases-fCases),color='Casi accertati'), color='
   
 p
 
-ggsave('COVID_osservazioni-previsioni.png',height=4,width=8)
+ggsave('./PLOT/COVID_osservazioni-previsioni.png',height=4,width=8)
 
 
 
