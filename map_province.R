@@ -4,12 +4,14 @@ library(ggplot2)
 library(maps)
 library(purrr)
 library(ggforce)
+library(readr)
 source('f_df_map.r')
 
 IT <- map_data("world") %>% filter(region=="Italy")
 
 firstday <- ymd("2020-02-24")
-cal <- as.Date(firstday - 1 + seq(firstday:(today() - 1)))
+lastday  <- today() - 1
+cal <- as.Date(firstday - 1 + seq(firstday:lastday))
 
 fileURL <- paste0("https://raw.githubusercontent.com/pcm-dpc/COVID-19/master/dati-province/dpc-covid19-ita-province-",
                   paste0(year(cal),sprintf("%02d",month(cal)),sprintf("%02d",day(cal))),
