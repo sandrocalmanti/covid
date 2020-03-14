@@ -5,7 +5,8 @@
 df_map = function (df,df_bor,df_scale=1) {
   
   df <- df %>% filter(totale_casi>0) %>% filter(lat>0)
-  df_ymd <- ymd(as.Date(unique(df$'ï..data')))
+#  df_ymd <- ymd(as.Date(unique(df$'ï..data')))
+  df_ymd <- ymd(as.Date(unique(df$'data')))
   p <- ggplot() +
     geom_polygon(data = df_bor, aes(x=long, y = lat, group = group), fill="grey", alpha=0.3) +
     geom_circle( data=df,aes(x0=long, y0=lat, r=(log(totale_casi)/(log(df_scale)))), fill='red',alpha=0.5) +
