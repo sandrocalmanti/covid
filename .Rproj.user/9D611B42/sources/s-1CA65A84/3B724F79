@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1584283044955.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3312634367",
+    "id" : "3B724F79",
+    "lastKnownWriteTime" : 1584189812,
+    "last_content_update" : 1584189812,
+    "path" : "~/R/covid/f_df_map.r",
+    "project_path" : "f_df_map.r",
+    "properties" : {
+    },
+    "relative_order" : 6,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

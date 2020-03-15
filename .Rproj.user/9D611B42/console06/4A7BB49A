@@ -1,0 +1,26 @@
+[0m[0KMicrosoft Windows [Versione 10.0.18362.720][0K[?25l
+(c) 2019 Microsoft Corporation. Tutti i diritti sono riservati.[0K
+[0K
+C:\Users\Sandro\Documents\R\covid>[0K[?25hd[0Ki[0Kr[0K[?25l
+ Il volume nell'unità C è Windows[0K
+ Numero di serie del volume: 8269-E031[0K
+[0K
+ Directory di C:\Users\Sandro\Documents\R\covid[0K
+[0K
+15/03/2020  11:57    <DIR>          .[0K
+15/03/2020  11:57    <DIR>          ..[0K
+14/03/2020  12:20                24 .gitignore[0K
+14/03/2020  13:43            19.465 .Rhistory[0K
+15/03/2020  11:57               218 covid.Rproj[0K
+10/03/2020  19:58            80.701 COVID_osservazioni-previsioni.png[0K
+10/03/2020  19:58    <DIR>          DATA[0K
+14/03/2020  13:43             1.357 f_df_map.r[0K
+14/03/2020  12:06               806 map_province.R[0K
+10/03/2020  19:58             1.553 mod_anomalies.r[0K
+14/03/2020  12:34    <DIR>          PLOT[0K
+10/03/2020  19:58               209 README.md[0K
+15/03/2020  11:56                 4 world_prediction.R[0K
+               9 File        104.337 byte[0K
+               4 Directory  169.894.400.000 byte disponibili[0K
+[0K
+C:\Users\Sandro\Documents\R\covid>[0K[?25h

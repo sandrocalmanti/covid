@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1584283027159.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "457756248",
+    "id" : "8A0A57DA",
+    "lastKnownWriteTime" : 1584184018,
+    "last_content_update" : 1584184018,
+    "path" : "~/R/covid/map_province.R",
+    "project_path" : "map_province.R",
+    "properties" : {
+    },
+    "relative_order" : 5,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
