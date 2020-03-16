@@ -34,7 +34,8 @@ p<- ggplot(data=df,aes(Date,100*(nCases-fCases),color='Casi accertati'), color='
   ylab('Differenza Osservati - Previsti [%]') +
   xlab('Data') +
   labs(color="") +
-  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  theme_light()
   
 p
 

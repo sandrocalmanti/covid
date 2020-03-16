@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1584327871561.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "D9E5AD97",
+    "lastKnownWriteTime" : 1584327906,
+    "last_content_update" : 1584327906012,
+    "path" : "~/R/covid/mod_anomalies.r",
+    "project_path" : "mod_anomalies.r",
+    "properties" : {
+        "cursorPosition" : "37,15",
+        "scrollLine" : "24"
+    },
+    "relative_order" : 3,
+    "source_on_save" : true,
+    "source_window" : "",
+    "type" : "r_source"
+}
