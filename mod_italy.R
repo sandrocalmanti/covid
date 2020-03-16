@@ -110,7 +110,7 @@ p<-ggplot(forecast,aes(data,Deceduti,color=Fit)) +
   annotate('text',x=as.Date('2020-05-01'),y=50,label=paste0('Max. Logistic ~ ',floor(dplyr::pull(filter(maxfit,Fit=='Logistic'),Deceduti))))+
   theme_light()
 p
-ggsave('./PLOT/COVID19_previsione_italia_log.png',p)
+ggsave('./PLOT/COVID19_forecast_italy_log.png',p)
 
 p<-ggplot(forecast,aes(data,Deceduti,color=Fit)) +
   geom_line() +
