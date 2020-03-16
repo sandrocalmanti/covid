@@ -5,16 +5,18 @@
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "208850224",
+    "hash" : "3948918523",
     "id" : "520F0D36",
-    "lastKnownWriteTime" : 1583866708,
-    "last_content_update" : 1583866708,
-    "path" : "~/R/covid/mod_anomalies.r",
-    "project_path" : "mod_anomalies.r",
+    "lastKnownWriteTime" : 1584327440,
+    "last_content_update" : 1584327440614,
+    "path" : "~/R/covid/mod_italy.R",
+    "project_path" : "mod_italy.R",
     "properties" : {
+        "cursorPosition" : "127,32",
+        "scrollLine" : "110"
     },
-    "relative_order" : 4,
-    "source_on_save" : false,
+    "relative_order" : 2,
+    "source_on_save" : true,
     "source_window" : "",
     "type" : "r_source"
 }

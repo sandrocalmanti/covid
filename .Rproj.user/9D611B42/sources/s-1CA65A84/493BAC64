@@ -7,13 +7,13 @@
     "folds" : "",
     "hash" : "0",
     "id" : "493BAC64",
-    "lastKnownWriteTime" : 1584283725,
-    "last_content_update" : 1584284696619,
+    "lastKnownWriteTime" : 1584313289,
+    "last_content_update" : 1584321988736,
     "path" : "~/R/covid/world_prediction.R",
     "project_path" : "world_prediction.R",
     "properties" : {
-        "cursorPosition" : "66,0",
-        "scrollLine" : "43"
+        "cursorPosition" : "0,0",
+        "scrollLine" : "0"
     },
     "relative_order" : 1,
     "source_on_save" : true,
