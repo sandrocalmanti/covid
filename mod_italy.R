@@ -10,7 +10,7 @@ source('f_fitfunctions.r')
 ############
 
 firstday <- ymd("2020-02-24")
-lastday  <- today() - 1
+lastday  <- today()
 dataURL<-'https://github.com/pcm-dpc/COVID-19/tree/master/dati-regioni'
 gitURL<-'https://github.com/sandrocalmanti/covid'
 cal <- as.Date(firstday - 1 + seq(firstday:lastday))
@@ -33,8 +33,8 @@ tbw_dpc <- as_tibble(bind_rows(map(fileURL,read.csv)) ) %>%
 # Non-linear fit
 #################
 
-fit1 <- fit.gompertz(tbw_dpc$deceduti,tbw$day,tbw$Country)
-fit2 <- fit.logistic(tbw_dpc$deceduti,tbw$day,tbw$Country)
+fit1 <- fit.gompertz(tbw_dpc$deceduti,tbw_dpc$day,tbw_dpc$Country)
+fit2 <- fit.logistic(tbw_dpc$deceduti,tbw_dpc$day,tbw_dpc$Country)
 #Check residulas
 nr1 <- nlsResiduals(fit1)
 nr2 <- nlsResiduals(fit2)
@@ -42,8 +42,8 @@ plot(nr1)
 plot(nr2)
 
 #Extract coefficients and confidence
-fit1_dpc <- broom::tidy(fit1) %>%  gather("coef", "value", 2:ncol(fit1_tbc)) %>%    spread(term, value)
-fit2_dpc <- broom::tidy(fit2) %>%  gather("coef", "value", 2:ncol(fit1_tbc)) %>%    spread(term, value)
+fit1_dpc <- broom::tidy(fit1) %>%  gather("coef", "value", 2:ncol(broom::tidy(fit1))) %>%    spread(term, value)
+fit2_dpc <- broom::tidy(fit2) %>%  gather("coef", "value", 2:ncol(broom::tidy(fit2))) %>%    spread(term, value)
 
 
 ###################
@@ -77,7 +77,7 @@ p<-ggplot(forecast,aes(data,Deceduti,color=Fit)) +
   annotate('text',x=as.Date('2020-05-01'),y=50,label=paste0('Max. Logistic ~ ',floor(dplyr::pull(filter(maxfit,Fit=='Logistic'),Deceduti))))+
   theme_light()
 p
-ggsave('./PLOT/COVID19_previsione_italia_log.png',p)
+ggsave(paste0('./PLOT/COVID19_previsione_italia_log_',today(),'.png'),p)
 
 p<-ggplot(forecast,aes(data,Deceduti,color=Fit)) +
   geom_line() +
@@ -92,7 +92,7 @@ p<-ggplot(forecast,aes(data,Deceduti,color=Fit)) +
   annotate('text',x=as.Date('2020-05-01'),y=9000,label=paste0('Max. Logistic ~ ',floor(dplyr::pull(filter(maxfit,Fit=='Logistic'),Deceduti))))+
   theme_light()
 p
-ggsave('./PLOT/COVID19_forecast_italy_lin.png',p)
+ggsave(paste0('./PLOT/COVID19_previsione_italia_lin_',today(),'.png'),p)
 
 
 #EN
@@ -110,7 +110,8 @@ p<-ggplot(forecast,aes(data,Deceduti,color=Fit)) +
   annotate('text',x=as.Date('2020-05-01'),y=50,label=paste0('Max. Logistic ~ ',floor(dplyr::pull(filter(maxfit,Fit=='Logistic'),Deceduti))))+
   theme_light()
 p
-ggsave('./PLOT/COVID19_forecast_italy_log.png',p)
+ggsave(paste0('./PLOT/COVID19_forecast_italy_log_',today(),'.png'),p)
+
 
 p<-ggplot(forecast,aes(data,Deceduti,color=Fit)) +
   geom_line() +
@@ -125,6 +126,6 @@ p<-ggplot(forecast,aes(data,Deceduti,color=Fit)) +
   annotate('text',x=as.Date('2020-05-01'),y=9000,label=paste0('Max. Logistic ~ ',floor(dplyr::pull(filter(maxfit,Fit=='Logistic'),Deceduti))))+
   theme_light()
 p
-ggsave('./PLOT/COVID19_forecast_italy_lin.png',p)
+ggsave(paste0('./PLOT/COVID19_forecast_italy_lin_',today(),'.png'),p)
 
 
