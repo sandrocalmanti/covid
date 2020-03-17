@@ -13,7 +13,7 @@ fit.gompertz <- function(data,time,country) {
   d <- data.frame(y=data, t=time, c=country)
 #  d <- data.frame(y=tbl$Deaths, t=tbl$day)
   c <- unique(d$c)
-  print(c)
+  #print(c)
 
   # Must have at least 3 datapoints at different times
   if (length(unique(d$t)) < 3) stop("too few data points to fit curve")
@@ -29,13 +29,15 @@ fit.gompertz <- function(data,time,country) {
   } else {
     #This are tested for COVID19 total-deaths data for Italy until 2020-03-14 
     starting.values <- c(a=12024, 
-                         mu=500, 
-                         lambda=18)    
+                         mu=7., 
+                         lambda=0.05)    
   }
-  print("Starting Values for Optimization: ")
-  print(starting.values)
-  formula.gompertz <- "y~a*exp(-exp(mu*exp(1)/a*(lambda-t)+1))"
-  nls(formula.gompertz, d, starting.values)
+  #print("Starting Values for Optimization: ")
+  #print(starting.values)
+  formula.gompertz <- "y~a*exp(-mu*exp(-lambda*t))"
+  nlscontrol = list(maxiter = 1000, tol = 1e-04, minFactor = 1/(16*1024),
+              printEval = FALSE, warnOnly = TRUE)
+  nls(formula.gompertz, d, starting.values,control=nlscontrol)
 }
 
 ########################################################################################
@@ -80,7 +82,8 @@ fit.logistic <- function(data,time,country) {
 ###################
 
 f.gompertz <- function(t,a,mu,lambda) {
-  gmp <- a*exp(-exp(mu*exp(1)/a*(lambda-t)+1))
+  #gmp <- a*exp(-exp(mu*exp(1)/a*(lambda-t)+1))
+  gmp <- a*exp(-mu*exp(-lambda*t))
   return(gmp)
 }
 
